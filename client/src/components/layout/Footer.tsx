@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter } from 'lucide-react';
 
 const footerLinks = {
@@ -23,9 +24,18 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center mb-4">
-              <span className="text-2xl font-bold text-primary-400">Corven</span>
-              <span className="text-2xl font-light text-gray-300">Dijital</span>
+            <Link href="/" className="flex items-center gap-2 mb-4">
+              <Image
+                src="/logo.png"
+                alt="Corven Dijital Logo"
+                width={36}
+                height={36}
+                className="w-9 h-9"
+              />
+              <div className="flex items-center">
+                <span className="text-2xl font-bold text-white">Corven</span>
+                <span className="text-2xl font-light text-primary-400">Dijital</span>
+              </div>
             </Link>
             <p className="text-gray-400 mb-6">
               İKAS e-ticaret çözümleri, SEO optimizasyonu ve özel yazılım geliştirme konusunda uzman dijital ajans.

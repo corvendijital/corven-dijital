@@ -1,1 +1,25 @@
-[]
+[
+  {
+    "id": "357a42df-873a-47de-b84f-5a4a4f51c704",
+    "name": "Özkan Batmaz",
+    "email": "driveozkanbatmaz@gmail.com",
+    "phone": "+90 505 331 37 56",
+    "company": "Corven Dijital",
+    "website": "google.com",
+    "platform": "ikas",
+    "sector": "Otomotiv",
+    "services": [
+      "ecommerce",
+      "seo",
+      "custom",
+      "maintenance",
+      "theme"
+    ],
+    "description": "Benim anlamadığım yapay zeka nasıl oluyor da abdi kaan gürbüzden daha iyi bir yazılımcı olabilir",
+    "budget": "under10k",
+    "timeline": "urgent",
+    "status": "new",
+    "notes": "",
+    "createdAt": "2025-12-30T08:16:54.636Z"
+  }
+]

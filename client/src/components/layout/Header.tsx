@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import Image from 'next/image';
+import { Menu, X } from 'lucide-react';
 
 const navigation = [
   { name: 'Ana Sayfa', href: '/' },
@@ -21,9 +22,18 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <span className="text-2xl font-bold text-primary-600">Corven</span>
-            <span className="text-2xl font-light text-gray-700">Dijital</span>
+          <Link href="/" className="flex items-center gap-2">
+            <Image
+              src="/logo.png"
+              alt="Corven Dijital Logo"
+              width={40}
+              height={40}
+              className="w-10 h-10"
+            />
+            <div className="flex items-center">
+              <span className="text-2xl font-bold text-gray-900">Corven</span>
+              <span className="text-2xl font-light text-primary-600">Dijital</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
