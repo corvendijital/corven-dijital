@@ -16,19 +16,43 @@ interface AuthContextType {
   login: (username: string, password: string) => Promise<void>;
   logout: () => void;
   isLoading: boolean;
+  isDemo: boolean;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
 
+// Demo kullanıcı - backend olmadan tasarımı görüntülemek için
+const DEMO_USER: User = {
+  id: 'demo-1',
+  username: 'demo',
+  name: 'Demo Kullanıcı',
+  role: 'admin',
+};
+
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isDemo, setIsDemo] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
+    // Demo modu kontrolü - URL'de ?demo=true varsa veya Vercel'de ise
+    const urlParams = new URLSearchParams(window.location.search);
+    const demoMode = urlParams.get('demo') === 'true';
+    const isVercel = window.location.hostname.includes('vercel.app');
+
+    if (demoMode || isVercel) {
+      // Demo modunda fake kullanıcı ile giriş yap
+      setUser(DEMO_USER);
+      setToken('demo-token');
+      setIsDemo(true);
+      setIsLoading(false);
+      return;
+    }
+
     // Check for stored token
     const storedToken = localStorage.getItem('token');
     if (storedToken) {
@@ -65,6 +89,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const login = async (username: string, password: string) => {
+    // Demo modunda direkt giriş yap
+    if (username === 'demo' && password === 'demo') {
+      setUser(DEMO_USER);
+      setToken('demo-token');
+      setIsDemo(true);
+      router.push('/admin/dashboard');
+      return;
+    }
+
     const response = await fetch(`${API_URL}/auth/login`, {
       method: 'POST',
       headers: {
@@ -89,11 +122,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     localStorage.removeItem('token');
     setToken(null);
     setUser(null);
+    setIsDemo(false);
     router.push('/admin/login');
   };
 
   return (
-    <AuthContext.Provider value={{ user, token, login, logout, isLoading }}>
+    <AuthContext.Provider value={{ user, token, login, logout, isLoading, isDemo }}>
       {children}
     </AuthContext.Provider>
   );
