@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { CheckCircle, ArrowRight, ArrowLeft } from 'lucide-react';
+import { CheckCircle, ArrowRight, ArrowLeft, Sparkles, Shield, Clock, HeadphonesIcon } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const platforms = [
   { id: 'ikas', name: 'İKAS' },
@@ -142,22 +143,50 @@ export default function TeklifPage() {
 
   if (isSubmitted) {
     return (
-      <section className="py-20 min-h-screen flex items-center">
-        <div className="max-w-2xl mx-auto px-4 text-center">
-          <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-            <CheckCircle className="text-green-600" size={40} />
-          </div>
-          <h1 className="text-3xl font-bold text-gray-900 mb-4">Teklif Talebiniz Alındı!</h1>
-          <p className="text-lg text-gray-600 mb-8">
+      <section className="py-20 min-h-screen flex items-center bg-gradient-to-br from-gray-50 to-gray-100">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="max-w-2xl mx-auto px-4 text-center"
+        >
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ type: 'spring', stiffness: 200, delay: 0.2 }}
+            className="w-24 h-24 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-green-500/30"
+          >
+            <CheckCircle className="text-white" size={48} />
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="text-4xl font-bold text-gray-900 mb-4"
+          >
+            Teklif Talebiniz Alındı!
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="text-lg text-gray-600 mb-8"
+          >
             En kısa sürede sizinle iletişime geçeceğiz. Genellikle 24 saat içinde dönüş yapıyoruz.
-          </p>
-          <a
+          </motion.p>
+          <motion.a
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             href="/"
-            className="inline-flex items-center bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
+            className="inline-flex items-center bg-primary-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-primary-700 transition-colors shadow-lg shadow-primary-600/25"
           >
             Ana Sayfaya Dön
-          </a>
-        </div>
+            <ArrowRight className="ml-2" size={20} />
+          </motion.a>
+        </motion.div>
       </section>
     );
   }
@@ -165,58 +194,115 @@ export default function TeklifPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Ücretsiz Teklif Alın</h1>
-            <p className="text-xl text-primary-100">
-              Projeniz hakkında bilgi verin, size özel bir teklif hazırlayalım.
-            </p>
+      <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-24 overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(220,38,38,0.15),transparent_50%)]" />
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className="inline-flex items-center text-primary-400 font-semibold text-sm uppercase tracking-wider"
+              >
+                <Sparkles size={18} className="mr-2" />
+                Ücretsiz Danışmanlık
+              </motion.span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-2 mb-6">Ücretsiz Teklif Alın</h1>
+              <p className="text-xl text-gray-300">
+                Projeniz hakkında bilgi verin, size özel bir teklif hazırlayalım.
+                Detaylı analiz ve strateji önerileri sunuyoruz.
+              </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="hidden lg:grid grid-cols-2 gap-4"
+            >
+              {[
+                { icon: Shield, title: 'Güvenli', desc: 'Bilgileriniz korunur' },
+                { icon: Clock, title: 'Hızlı Dönüş', desc: '24 saat içinde' },
+                { icon: HeadphonesIcon, title: 'Ücretsiz', desc: 'Hiçbir ücret yok' },
+                { icon: CheckCircle, title: 'Detaylı', desc: 'Kapsamlı analiz' },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 + i * 0.1 }}
+                  className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10"
+                >
+                  <item.icon className="text-primary-400 mb-2" size={24} />
+                  <h3 className="font-semibold text-white">{item.title}</h3>
+                  <p className="text-sm text-gray-400">{item.desc}</p>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Progress Bar */}
-      <div className="bg-gray-100 py-4 sticky top-16 z-40">
+      <div className="bg-white py-6 sticky top-16 z-40 border-b border-gray-100 shadow-sm">
         <div className="max-w-3xl mx-auto px-4">
-          <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center justify-between mb-3">
             {[1, 2, 3, 4].map((s) => (
-              <div
+              <motion.div
                 key={s}
-                className={`flex items-center justify-center w-10 h-10 rounded-full font-semibold ${
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                className={`flex items-center justify-center w-12 h-12 rounded-full font-semibold transition-all duration-300 ${
                   s === step
-                    ? 'bg-primary-600 text-white'
+                    ? 'bg-primary-600 text-white shadow-lg shadow-primary-600/30 scale-110'
                     : s < step
                     ? 'bg-green-500 text-white'
-                    : 'bg-gray-300 text-gray-600'
+                    : 'bg-gray-200 text-gray-500'
                 }`}
               >
-                {s < step ? <CheckCircle size={20} /> : s}
-              </div>
+                {s < step ? <CheckCircle size={22} /> : s}
+              </motion.div>
             ))}
           </div>
-          <div className="h-2 bg-gray-300 rounded-full">
-            <div
-              className="h-full bg-primary-600 rounded-full transition-all duration-300"
-              style={{ width: `${((step - 1) / (totalSteps - 1)) * 100}%` }}
+          <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+            <motion.div
+              className="h-full bg-gradient-to-r from-primary-500 to-primary-600 rounded-full"
+              initial={{ width: 0 }}
+              animate={{ width: `${((step - 1) / (totalSteps - 1)) * 100}%` }}
+              transition={{ duration: 0.5 }}
             />
           </div>
-          <div className="flex justify-between mt-2 text-sm text-gray-600">
-            <span>Kişisel Bilgiler</span>
-            <span>İş Bilgileri</span>
-            <span>Hizmetler</span>
-            <span>Detaylar</span>
+          <div className="flex justify-between mt-3 text-sm">
+            {['Kişisel Bilgiler', 'İş Bilgileri', 'Hizmetler', 'Detaylar'].map((label, i) => (
+              <span key={label} className={i + 1 <= step ? 'text-primary-600 font-medium' : 'text-gray-400'}>
+                {label}
+              </span>
+            ))}
           </div>
         </div>
       </div>
 
       {/* Form */}
-      <section className="py-12">
+      <section className="py-12 bg-gray-50">
         <div className="max-w-3xl mx-auto px-4">
           <form onSubmit={handleSubmit}>
+            <AnimatePresence mode="wait">
             {/* Step 1 - Kişisel Bilgiler */}
             {step === 1 && (
-              <div className="bg-white rounded-2xl shadow-lg p-8">
+              <motion.div
+                key="step1"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100"
+              >
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">Kişisel Bilgiler</h2>
                 <div className="space-y-6">
                   <div>
@@ -297,12 +383,19 @@ export default function TeklifPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             )}
 
             {/* Step 2 - İş Bilgileri */}
             {step === 2 && (
-              <div className="bg-white rounded-2xl shadow-lg p-8">
+              <motion.div
+                key="step2"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100"
+              >
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">İş Bilgileri</h2>
                 <div className="space-y-6">
                   <div>
@@ -347,12 +440,19 @@ export default function TeklifPage() {
                     </select>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             )}
 
             {/* Step 3 - Hizmetler */}
             {step === 3 && (
-              <div className="bg-white rounded-2xl shadow-lg p-8">
+              <motion.div
+                key="step3"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100"
+              >
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">Hangi Hizmetlere İhtiyacınız Var?</h2>
                 <p className="text-gray-600 mb-6">Birden fazla seçebilirsiniz.</p>
                 <div className="grid md:grid-cols-2 gap-4">
@@ -390,12 +490,19 @@ export default function TeklifPage() {
                     </button>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             )}
 
             {/* Step 4 - Proje Detayları */}
             {step === 4 && (
-              <div className="bg-white rounded-2xl shadow-lg p-8">
+              <motion.div
+                key="step4"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100"
+              >
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">Proje Detayları</h2>
                 <div className="space-y-6">
                   <div>
@@ -456,36 +563,48 @@ export default function TeklifPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             )}
+            </AnimatePresence>
 
             {/* Navigation */}
-            <div className="flex justify-between mt-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="flex justify-between mt-8"
+            >
               {step > 1 && (
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   type="button"
                   onClick={prevStep}
-                  className="inline-flex items-center px-6 py-3 rounded-lg border border-gray-300 text-gray-700 font-medium hover:bg-gray-50 transition-colors"
+                  className="inline-flex items-center px-6 py-3 rounded-xl border-2 border-gray-200 text-gray-700 font-medium hover:bg-gray-50 hover:border-gray-300 transition-all"
                 >
                   <ArrowLeft className="mr-2" size={18} />
                   Geri
-                </button>
+                </motion.button>
               )}
               {step < totalSteps ? (
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   type="button"
                   onClick={nextStep}
                   disabled={!isStepValid()}
-                  className="inline-flex items-center px-6 py-3 rounded-lg bg-primary-600 text-white font-medium hover:bg-primary-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed ml-auto"
+                  className="inline-flex items-center px-8 py-3 rounded-xl bg-primary-600 text-white font-medium hover:bg-primary-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed ml-auto shadow-lg shadow-primary-600/25"
                 >
                   Devam Et
                   <ArrowRight className="ml-2" size={18} />
-                </button>
+                </motion.button>
               ) : (
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                   type="submit"
                   disabled={!isStepValid() || isSubmitting}
-                  className="inline-flex items-center px-8 py-3 rounded-lg bg-primary-600 text-white font-semibold hover:bg-primary-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed ml-auto"
+                  className="inline-flex items-center px-8 py-4 rounded-xl bg-gradient-to-r from-primary-600 to-primary-700 text-white font-semibold hover:from-primary-700 hover:to-primary-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed ml-auto shadow-lg shadow-primary-600/25"
                 >
                   {isSubmitting ? (
                     <>
@@ -501,9 +620,9 @@ export default function TeklifPage() {
                       <CheckCircle className="ml-2" size={18} />
                     </>
                   )}
-                </button>
+                </motion.button>
               )}
-            </div>
+            </motion.div>
           </form>
         </div>
       </section>

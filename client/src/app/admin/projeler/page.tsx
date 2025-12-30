@@ -175,6 +175,22 @@ export default function AdminProjelerPage() {
     }
   };
 
+  const toggleFeatured = async (project: Project) => {
+    try {
+      await fetch(`${API_URL}/projects/${project.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ featured: !project.featured }),
+      });
+      fetchProjects();
+    } catch (error) {
+      console.error('Error toggling featured:', error);
+    }
+  };
+
   const filteredProjects = projects.filter((p) =>
     p.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     p.client.toLowerCase().includes(searchTerm.toLowerCase())
@@ -237,11 +253,20 @@ export default function AdminProjelerPage() {
                 </div>
               )}
               <div className="absolute top-2 right-2 flex gap-2">
-                {project.featured && (
-                  <span className="bg-yellow-500 text-white p-1.5 rounded-lg">
-                    <Star size={14} />
-                  </span>
-                )}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleFeatured(project);
+                  }}
+                  className={`p-1.5 rounded-lg transition-colors ${
+                    project.featured
+                      ? 'bg-yellow-500 text-white hover:bg-yellow-600'
+                      : 'bg-white/80 text-gray-400 hover:bg-yellow-100 hover:text-yellow-600'
+                  }`}
+                  title={project.featured ? 'Öne çıkarmayı kaldır' : 'Öne çıkar'}
+                >
+                  <Star size={14} fill={project.featured ? 'currentColor' : 'none'} />
+                </button>
                 <span className={`px-2 py-1 rounded-lg text-xs font-medium ${
                   project.status === 'published'
                     ? 'bg-green-100 text-green-700'

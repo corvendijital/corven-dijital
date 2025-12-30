@@ -1,12 +1,38 @@
 [
   {
+    "id": "fa920b43-3917-463d-953c-dd15d10333f4",
+    "title": "Operasyon Kurtlar Vadisi",
+    "slug": "operasyon-kurtlar-vadisi",
+    "description": "Bu bir mafya dizisidir.",
+    "fullDescription": "Anlatılmaz izlenir.",
+    "category": "E-Ticaret",
+    "technologies": [
+      "İKAS",
+      "Javascript",
+      "Next.js"
+    ],
+    "image": "data:image/jpeg;base64,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",
+    "gallery": [],
+    "client": "Umut",
+    "year": "2025",
+    "url": "",
+    "featured": true,
+    "status": "published",
+    "createdAt": "2025-12-30T17:08:37.569Z"
+  },
+  {
     "id": "1",
     "title": "ModaStyle E-Ticaret",
     "slug": "modastyle-eticaret",
     "description": "ModaStyle için İKAS altyapısında modern ve kullanıcı dostu bir e-ticaret sitesi geliştirdik.",
     "fullDescription": "ModaStyle markası için İKAS e-ticaret altyapısında kapsamlı bir online mağaza oluşturduk. Proje kapsamında özel tema tasarımı, ürün filtreleme sistemi, kampanya modülleri ve mobil uyumlu arayüz geliştirdik. Site lansmanından itibaren %40 dönüşüm artışı sağladı.",
     "category": "E-Ticaret",
-    "technologies": ["İKAS", "Liquid", "JavaScript", "CSS"],
+    "technologies": [
+      "İKAS",
+      "Liquid",
+      "JavaScript",
+      "CSS"
+    ],
     "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800",
     "gallery": [],
     "client": "ModaStyle",
@@ -23,7 +49,11 @@
     "description": "Teknoloji ürünleri satan TechGear için SEO odaklı e-ticaret çözümü.",
     "fullDescription": "TechGear için İKAS üzerinde SEO optimizasyonlu bir e-ticaret platformu geliştirdik. Hızlı sayfa yüklenme süreleri, gelişmiş ürün arama ve karşılaştırma özellikleri ekledik. Google'da ilk sayfaya çıkan anahtar kelime sayısı 3 ayda 150'yi aştı.",
     "category": "E-Ticaret",
-    "technologies": ["İKAS", "SEO", "JavaScript"],
+    "technologies": [
+      "İKAS",
+      "SEO",
+      "JavaScript"
+    ],
     "image": "https://images.unsplash.com/photo-1468495244123-6c6c332eeece?w=800",
     "gallery": [],
     "client": "TechGear",
@@ -40,7 +70,12 @@
     "description": "Organik ürünler satan Organik Bahçe için özel tema geliştirme projesi.",
     "fullDescription": "Organik Bahçe markası için doğayı yansıtan, sıcak tonlarda özel bir İKAS teması tasarladık. Abonelik sistemi, düzenli sipariş özellikleri ve müşteri sadakat programı entegrasyonu gerçekleştirdik.",
     "category": "Tema Geliştirme",
-    "technologies": ["İKAS", "Liquid", "CSS", "JavaScript"],
+    "technologies": [
+      "İKAS",
+      "Liquid",
+      "CSS",
+      "JavaScript"
+    ],
     "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800",
     "gallery": [],
     "client": "Organik Bahçe",
@@ -57,7 +92,11 @@
     "description": "Spor Deposu için kapsamlı SEO çalışması ve içerik stratejisi.",
     "fullDescription": "Spor Deposu e-ticaret sitesi için 6 aylık SEO projesi yürüttük. Teknik SEO düzenlemeleri, içerik optimizasyonu ve backlink stratejisi ile organik trafiği %200 artırdık.",
     "category": "SEO",
-    "technologies": ["SEO", "Google Analytics", "Search Console"],
+    "technologies": [
+      "SEO",
+      "Google Analytics",
+      "Search Console"
+    ],
     "image": "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800",
     "gallery": [],
     "client": "Spor Deposu",

@@ -1,6 +1,9 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter, ArrowRight, Heart } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const footerLinks = {
   hizmetler: [
@@ -17,116 +20,204 @@ const footerLinks = {
   ],
 };
 
+const socialLinks = [
+  { icon: Instagram, href: '#', label: 'Instagram', color: 'hover:bg-gradient-to-br hover:from-pink-500 hover:to-rose-500' },
+  { icon: Linkedin, href: '#', label: 'LinkedIn', color: 'hover:bg-blue-600' },
+  { icon: Twitter, href: '#', label: 'X (Twitter)', color: 'hover:bg-gray-800' },
+];
+
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="bg-gradient-to-b from-gray-900 to-gray-950 text-white relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(220,38,38,0.08),transparent_50%)]" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+        {/* CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-3xl p-8 md:p-12 mb-16 relative overflow-hidden"
+        >
+          <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
+          <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+            <div>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                Projenizi Hayata Geçirelim
+              </h3>
+              <p className="text-primary-100">
+                E-ticaret yolculuğunuzda size yardımcı olmaya hazırız.
+              </p>
+            </div>
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+              <Link
+                href="/teklif"
+                className="inline-flex items-center bg-white text-primary-600 px-8 py-4 rounded-xl font-semibold hover:bg-primary-50 transition-colors shadow-lg"
+              >
+                Ücretsiz Teklif Al
+                <ArrowRight className="ml-2" size={20} />
+              </Link>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <Image
-                src="/logo.png"
-                alt="Corven Dijital Logo"
-                width={36}
-                height={36}
-                className="w-9 h-9"
-              />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="lg:col-span-1"
+          >
+            <Link href="/" className="flex items-center gap-2 mb-6 group">
+              <motion.div whileHover={{ rotate: 5 }}>
+                <Image
+                  src="/logo.png"
+                  alt="Corven Dijital Logo"
+                  width={40}
+                  height={40}
+                  className="w-10 h-10"
+                />
+              </motion.div>
               <div className="flex items-center">
-                <span className="text-2xl font-bold text-white">Corven</span>
+                <span className="text-2xl font-bold text-white group-hover:text-primary-400 transition-colors">Corven</span>
                 <span className="text-2xl font-light text-primary-400">Dijital</span>
               </div>
             </Link>
-            <p className="text-gray-400 mb-6">
+            <p className="text-gray-400 mb-6 leading-relaxed">
               İKAS e-ticaret çözümleri, SEO optimizasyonu ve özel yazılım geliştirme konusunda uzman dijital ajans.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-primary-400 transition-colors">
-                <Instagram size={20} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-primary-400 transition-colors">
-                <Linkedin size={20} />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-primary-400 transition-colors">
-                <Twitter size={20} />
-              </a>
+            <div className="flex space-x-3">
+              {socialLinks.map((social) => (
+                <motion.a
+                  key={social.label}
+                  href={social.href}
+                  whileHover={{ scale: 1.1, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center text-gray-400 hover:text-white transition-all ${social.color}`}
+                  aria-label={social.label}
+                >
+                  <social.icon size={18} />
+                </motion.a>
+              ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Hizmetler */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Hizmetler</h3>
-            <ul className="space-y-3">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+          >
+            <h3 className="text-lg font-semibold mb-6 text-white">Hizmetler</h3>
+            <ul className="space-y-4">
               {footerLinks.hizmetler.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-gray-400 hover:text-white transition-colors flex items-center group"
                   >
+                    <span className="w-0 group-hover:w-2 h-0.5 bg-primary-500 mr-0 group-hover:mr-2 transition-all duration-300" />
                     {link.name}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Şirket */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Şirket</h3>
-            <ul className="space-y-3">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            <h3 className="text-lg font-semibold mb-6 text-white">Şirket</h3>
+            <ul className="space-y-4">
               {footerLinks.sirket.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-gray-400 hover:text-white transition-colors flex items-center group"
                   >
+                    <span className="w-0 group-hover:w-2 h-0.5 bg-primary-500 mr-0 group-hover:mr-2 transition-all duration-300" />
                     {link.name}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* İletişim */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">İletişim</h3>
-            <ul className="space-y-3">
-              <li className="flex items-center text-gray-400">
-                <Mail size={18} className="mr-3 text-primary-400" />
-                <a href="mailto:info@corvendijital.com" className="hover:text-white transition-colors">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+          >
+            <h3 className="text-lg font-semibold mb-6 text-white">İletişim</h3>
+            <ul className="space-y-4">
+              <li>
+                <a
+                  href="mailto:info@corvendijital.com"
+                  className="flex items-center text-gray-400 hover:text-white transition-colors group"
+                >
+                  <div className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center mr-3 group-hover:bg-primary-600/20 transition-colors">
+                    <Mail size={18} className="text-primary-400" />
+                  </div>
                   info@corvendijital.com
                 </a>
               </li>
-              <li className="flex items-center text-gray-400">
-                <Phone size={18} className="mr-3 text-primary-400" />
-                <a href="tel:+905551234567" className="hover:text-white transition-colors">
+              <li>
+                <a
+                  href="tel:+905551234567"
+                  className="flex items-center text-gray-400 hover:text-white transition-colors group"
+                >
+                  <div className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center mr-3 group-hover:bg-primary-600/20 transition-colors">
+                    <Phone size={18} className="text-primary-400" />
+                  </div>
                   +90 555 123 45 67
                 </a>
               </li>
-              <li className="flex items-start text-gray-400">
-                <MapPin size={18} className="mr-3 mt-1 text-primary-400 flex-shrink-0" />
-                <span>İstanbul, Türkiye</span>
+              <li className="flex items-center text-gray-400">
+                <div className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center mr-3">
+                  <MapPin size={18} className="text-primary-400" />
+                </div>
+                İstanbul, Türkiye
               </li>
             </ul>
-          </div>
+          </motion.div>
         </div>
 
         {/* Bottom */}
-        <div className="border-t border-gray-800 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="border-t border-white/10 mt-16 pt-8"
+        >
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-gray-500 text-sm flex items-center">
               © {new Date().getFullYear()} Corven Dijital. Tüm hakları saklıdır.
+              <span className="mx-2">•</span>
+              <span className="flex items-center">
+                <Heart size={14} className="text-primary-500 mr-1" fill="currentColor" /> ile yapıldı
+              </span>
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="/gizlilik" className="text-gray-400 hover:text-white text-sm transition-colors">
+            <div className="flex space-x-6">
+              <Link href="/gizlilik" className="text-gray-500 hover:text-white text-sm transition-colors">
                 Gizlilik Politikası
               </Link>
-              <Link href="/kvkk" className="text-gray-400 hover:text-white text-sm transition-colors">
+              <Link href="/kvkk" className="text-gray-500 hover:text-white text-sm transition-colors">
                 KVKK
               </Link>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );
