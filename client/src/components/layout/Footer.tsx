@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter, ArrowRight, Heart } from 'lucide-react';
+import { Mail, Phone, MapPin, Instagram, Linkedin, Twitter, Heart } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const footerLinks = {
@@ -35,35 +35,6 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
-        {/* CTA Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-3xl p-8 md:p-12 mb-16 relative overflow-hidden"
-        >
-          <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
-          <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                Projenizi Hayata Geçirelim
-              </h3>
-              <p className="text-primary-100">
-                E-ticaret yolculuğunuzda size yardımcı olmaya hazırız.
-              </p>
-            </div>
-            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-              <Link
-                href="/teklif"
-                className="inline-flex items-center bg-white text-primary-600 px-8 py-4 rounded-xl font-semibold hover:bg-primary-50 transition-colors shadow-lg"
-              >
-                Ücretsiz Teklif Al
-                <ArrowRight className="ml-2" size={20} />
-              </Link>
-            </motion.div>
-          </div>
-        </motion.div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand */}
           <motion.div
