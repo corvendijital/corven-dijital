@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1",
+    "username": "admin",
+    "password": "$2b$10$IPGozck9L4lu9UfPEXyOVeYM7BLRojZUbtUE/V2gIfheS.b5HxuBC",
+    "role": "admin",
+    "name": "Admin",
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "2",
+    "username": "editor",
+    "password": "$2b$10$IPGozck9L4lu9UfPEXyOVeYM7BLRojZUbtUE/V2gIfheS.b5HxuBC",
+    "role": "editor",
+    "name": "Editor",
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  }
+]

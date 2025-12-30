@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1",
+    "title": "İKAS ile E-Ticaret Sitenizi Nasıl Büyütürsünüz?",
+    "slug": "ikas-ile-eticaret-sitenizi-nasil-buyutursunuz",
+    "excerpt": "İKAS altyapısının sunduğu avantajları ve e-ticaret sitenizi büyütmek için kullanabileceğiniz stratejileri keşfedin.",
+    "content": "İKAS, Türkiye'nin en popüler e-ticaret altyapılarından biri olarak öne çıkıyor. Peki İKAS'ı kullanarak e-ticaret sitenizi nasıl büyütebilirsiniz?\n\n## 1. Doğru Tema Seçimi\n\nİKAS'ın sunduğu tema seçenekleri arasından markanıza en uygun olanı seçmek önemli. Ancak özel tema geliştirme ile rakiplerinizden farklılaşabilirsiniz.\n\n## 2. SEO Optimizasyonu\n\nİKAS'ın SEO dostu yapısını kullanarak arama motorlarında üst sıralara çıkabilirsiniz. Meta açıklamaları, URL yapıları ve site hızı optimizasyonu kritik faktörler.\n\n## 3. Mobil Uyumluluk\n\nTüketicilerin %70'inden fazlası mobil cihazlardan alışveriş yapıyor. Mobil uyumlu bir site artık lüks değil, zorunluluk.\n\n## Sonuç\n\nDoğru strateji ve profesyonel destek ile İKAS'ta başarılı bir e-ticaret sitesi kurabilirsiniz.",
+    "category": "E-Ticaret",
+    "tags": ["İKAS", "E-Ticaret", "Online Satış"],
+    "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800",
+    "author": "Corven Dijital",
+    "status": "published",
+    "views": 1250,
+    "createdAt": "2024-01-20T00:00:00.000Z",
+    "updatedAt": "2024-01-20T00:00:00.000Z"
+  },
+  {
+    "id": "2",
+    "title": "2024'te SEO Trendleri: Bilmeniz Gerekenler",
+    "slug": "2024te-seo-trendleri",
+    "excerpt": "2024 yılında SEO dünyasında neler değişiyor? Yapay zeka, kullanıcı deneyimi ve içerik stratejileri hakkında bilmeniz gerekenler.",
+    "content": "SEO dünyası sürekli evrim geçiriyor. 2024'te başarılı olmak için bu trendleri takip etmelisiniz.\n\n## 1. Yapay Zeka ve SEO\n\nGoogle'ın yapay zeka algoritmaları giderek daha sofistike hale geliyor. İçeriklerinizin gerçek değer sunması her zamankinden daha önemli.\n\n## 2. Core Web Vitals\n\nSayfa deneyimi metrikleri sıralama faktörü olmaya devam ediyor. LCP, FID ve CLS değerlerinizi optimize edin.\n\n## 3. E-E-A-T Önemi\n\nExperience (Deneyim), Expertise (Uzmanlık), Authoritativeness (Otorite) ve Trustworthiness (Güvenilirlik) kriterleri daha da önem kazandı.\n\n## 4. Video SEO\n\nVideo içerikler arama sonuçlarında daha fazla yer alıyor. YouTube ve site içi video optimizasyonuna yatırım yapın.",
+    "category": "SEO",
+    "tags": ["SEO", "Dijital Pazarlama", "Google"],
+    "image": "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800",
+    "author": "Corven Dijital",
+    "status": "published",
+    "views": 890,
+    "createdAt": "2024-02-15T00:00:00.000Z",
+    "updatedAt": "2024-02-15T00:00:00.000Z"
+  },
+  {
+    "id": "3",
+    "title": "E-Ticaret Sitelerinde Dönüşüm Oranını Artırmanın 5 Yolu",
+    "slug": "eticaret-donusum-orani-artirma",
+    "excerpt": "E-ticaret sitenizin dönüşüm oranını artırmak için uygulayabileceğiniz pratik stratejiler.",
+    "content": "Trafiğiniz yüksek ama satışlar beklediğiniz gibi değil mi? İşte dönüşüm oranınızı artıracak 5 strateji.\n\n## 1. Basit Checkout Süreci\n\nKarmaşık ödeme süreçleri sepet terk oranını artırır. Checkout adımlarını minimumda tutun.\n\n## 2. Güven Sinyalleri\n\nSSL sertifikası, müşteri yorumları ve güvenlik rozetleri kullanıcı güvenini artırır.\n\n## 3. Hızlı Site Performansı\n\nHer 1 saniyelik gecikme, dönüşüm oranını %7 düşürebilir. Site hızını optimize edin.\n\n## 4. Kaliteli Ürün Görselleri\n\nProfesyonel ürün fotoğrafları ve farklı açılardan görüntüler satışları artırır.\n\n## 5. Aciliyet Yaratın\n\nStok sayacı, kampanya süreleri gibi elementlerle aciliyet duygusu oluşturun.",
+    "category": "E-Ticaret",
+    "tags": ["Dönüşüm", "E-Ticaret", "UX"],
+    "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800",
+    "author": "Corven Dijital",
+    "status": "published",
+    "views": 2100,
+    "createdAt": "2024-03-10T00:00:00.000Z",
+    "updatedAt": "2024-03-10T00:00:00.000Z"
+  }
+]
