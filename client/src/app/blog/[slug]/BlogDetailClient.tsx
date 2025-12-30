@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Calendar, Clock, ArrowLeft, Tag, User, Share2, BookOpen, ArrowRight, CheckCircle, Bookmark, ChevronRight } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, Tag, User, Share2, BookOpen, ArrowRight, CheckCircle, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface BlogPost {
@@ -346,18 +346,20 @@ export default function BlogDetailClient({ post, relatedPosts }: Props) {
                   </p>
                 </motion.div>
 
-                {/* Save Article */}
-                <motion.button
+                {/* Contact Button */}
+                <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full flex items-center justify-center bg-white border-2 border-gray-200 text-gray-700 py-3 px-4 rounded-xl font-medium hover:border-primary-600 hover:text-primary-600 transition-all"
                 >
-                  <Bookmark size={18} className="mr-2" />
-                  Kaydet
-                </motion.button>
+                  <Link
+                    href="/iletisim"
+                    className="w-full flex items-center justify-center bg-white border-2 border-gray-200 text-gray-700 py-3 px-4 rounded-xl font-medium hover:border-primary-600 hover:text-primary-600 transition-all"
+                  >
+                    <User size={18} className="mr-2" />
+                    İletişime Geç
+                  </Link>
+                </motion.div>
 
                 {/* CTA Card */}
                 <motion.div
