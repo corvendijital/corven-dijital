@@ -225,46 +225,79 @@ export default function HizmetlerPage() {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(220,38,38,0.15),transparent_50%)]" />
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
             className="text-center mb-16"
           >
-            <span className="text-primary-600 font-semibold text-sm uppercase tracking-wider">Süreç</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">
+            <span className="text-primary-400 font-semibold text-sm uppercase tracking-wider">Süreç</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mt-2 mb-4">
               Nasıl Çalışıyoruz?
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
               Projelerinizi başarıyla tamamlamak için izlediğimiz adımlar
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-4 gap-8">
-            {[
-              { step: '01', title: 'Analiz', desc: 'İhtiyaçlarınızı ve hedeflerinizi belirliyoruz' },
-              { step: '02', title: 'Planlama', desc: 'Projenin yol haritasını çiziyoruz' },
-              { step: '03', title: 'Geliştirme', desc: 'Çözümü titizlikle hayata geçiriyoruz' },
-              { step: '04', title: 'Destek', desc: 'Sürekli bakım ve destek sağlıyoruz' },
-            ].map((item, i) => (
-              <motion.div
-                key={item.step}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="relative"
-              >
-                <div className="text-7xl font-bold text-primary-100 mb-4">{item.step}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h3>
-                <p className="text-gray-600">{item.desc}</p>
-                {i < 3 && (
-                  <div className="hidden md:block absolute top-8 right-0 w-full h-0.5 bg-gradient-to-r from-primary-200 to-transparent transform translate-x-1/2" />
-                )}
-              </motion.div>
-            ))}
+          <div className="relative">
+            {/* Bağlantı çizgisi */}
+            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-primary-600/20 via-primary-500/40 to-primary-600/20 transform -translate-y-1/2 z-0" />
+
+            <div className="grid md:grid-cols-4 gap-6 relative z-10">
+              {[
+                { step: '01', title: 'Analiz', desc: 'İhtiyaçlarınızı belirliyoruz', icon: '🎯' },
+                { step: '02', title: 'Planlama', desc: 'Yol haritası çiziyoruz', icon: '📋' },
+                { step: '03', title: 'Geliştirme', desc: 'Hayata geçiriyoruz', icon: '⚡' },
+                { step: '04', title: 'Destek', desc: 'Yanınızda oluyoruz', icon: '🚀' },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.step}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 20,
+                    delay: i * 0.1
+                  }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className="relative group"
+                >
+                  <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 text-center hover:border-primary-500/50 transition-all duration-300">
+                    {/* Numara badge */}
+                    <motion.div
+                      initial={{ rotate: -10 }}
+                      whileHover={{ rotate: 0, scale: 1.1 }}
+                      className="w-14 h-14 bg-gradient-to-br from-primary-500 to-primary-700 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-primary-500/25 text-2xl"
+                    >
+                      {item.icon}
+                    </motion.div>
+                    <div className="text-primary-400 font-bold text-sm mb-2">ADIM {item.step}</div>
+                    <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+                    <p className="text-gray-400 text-sm">{item.desc}</p>
+                  </div>
+
+                  {/* Bağlantı noktası */}
+                  {i < 3 && (
+                    <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-6 transform -translate-y-1/2 z-20">
+                      <motion.div
+                        animate={{ scale: [1, 1.2, 1] }}
+                        transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
+                        className="w-full h-full bg-primary-500 rounded-full shadow-lg shadow-primary-500/50"
+                      />
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
