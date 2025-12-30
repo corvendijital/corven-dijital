@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, Calendar, Building2, Layers, ExternalLink, CheckCircle } from 'lucide-react';
 import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
 
 // Mock proje data (simüle)
 const projects = [
@@ -343,6 +344,28 @@ Yeni tema ile:
     ],
   },
 ];
+
+// Dinamik metadata
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
+
+  if (!project) {
+    return {
+      title: 'Proje Bulunamadı',
+    };
+  }
+
+  return {
+    title: `${project.title} - ${project.category} Projesi`,
+    description: project.description,
+    openGraph: {
+      title: `${project.title} | Corven Dijital`,
+      description: project.description,
+      images: [project.image],
+    },
+  };
+}
 
 export default async function ProjeDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

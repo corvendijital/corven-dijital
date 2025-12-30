@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Calendar, Clock, ArrowLeft, Tag, User } from 'lucide-react';
 import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
 
 // Mock blog data (simüle)
 const blogPosts = [
@@ -158,6 +159,37 @@ Bu stratejileri uygulayarak dönüşüm oranınızı önemli ölçüde artırabi
     readTime: '6 dk',
   },
 ];
+
+// Dinamik metadata
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = blogPosts.find((p) => p.slug === slug);
+
+  if (!post) {
+    return {
+      title: 'Yazı Bulunamadı',
+    };
+  }
+
+  return {
+    title: post.title,
+    description: post.excerpt,
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      type: 'article',
+      publishedTime: post.date,
+      authors: [post.author],
+      images: [post.image],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: [post.image],
+    },
+  };
+}
 
 export default async function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

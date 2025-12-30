@@ -1,6 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Blog - E-Ticaret ve Dijital Pazarlama İpuçları',
+  description: 'E-ticaret, SEO, İKAS ve dijital pazarlama hakkında güncel blog yazıları. Uzman içerikler ve stratejiler.',
+  openGraph: {
+    title: 'Blog | Corven Dijital',
+    description: 'E-ticaret, SEO ve dijital pazarlama hakkında güncel blog yazıları.',
+  },
+};
 
 const blogPosts = [
   {

@@ -1,5 +1,15 @@
 import { ShoppingCart, Search, Palette, Code, CheckCircle, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Hizmetlerimiz - İKAS E-Ticaret, SEO, Tema Geliştirme',
+  description: 'İKAS e-ticaret çözümleri, SEO optimizasyonu, özel tema geliştirme ve yazılım hizmetleri. Profesyonel dijital ajans hizmetleri.',
+  openGraph: {
+    title: 'Hizmetlerimiz | Corven Dijital',
+    description: 'İKAS e-ticaret çözümleri, SEO optimizasyonu, özel tema geliştirme ve yazılım hizmetleri.',
+  },
+};
 
 const services = [
   {
