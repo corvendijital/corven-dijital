@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Calendar, Clock, ArrowLeft, Tag, User, Share2, BookOpen, ArrowRight, CheckCircle, ChevronRight } from 'lucide-react';
+import { Calendar, Clock, ArrowLeft, Tag, User, Share2, BookOpen, CheckCircle, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 interface BlogPost {
@@ -447,31 +447,6 @@ export default function BlogDetailClient({ post, relatedPosts }: Props) {
         </section>
       )}
 
-      {/* Bottom CTA */}
-      <section className="py-20 bg-gradient-to-r from-gray-900 to-gray-800">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Projeniz İçin Destek mi Arıyorsunuz?
-          </h2>
-          <p className="text-gray-400 mb-8 text-lg">
-            E-ticaret ve dijital pazarlama konusunda uzman ekibimizle tanışın.
-          </p>
-          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-            <Link
-              href="/teklif"
-              className="inline-flex items-center bg-primary-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-primary-700 transition-colors shadow-lg shadow-primary-600/25"
-            >
-              Ücretsiz Teklif Alın
-              <ArrowRight size={20} className="ml-2" />
-            </Link>
-          </motion.div>
-        </motion.div>
-      </section>
     </>
   );
 }
