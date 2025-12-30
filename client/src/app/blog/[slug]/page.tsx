@@ -1,8 +1,6 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { Calendar, Clock, ArrowLeft, Tag, User } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
+import BlogDetailClient from './BlogDetailClient';
 
 // Mock blog data (simüle)
 const blogPosts = [
@@ -28,6 +26,7 @@ Tema seçerken dikkat edilmesi gerekenler:
 İKAS'ın SEO dostu yapısını kullanarak arama motorlarında üst sıralara çıkabilirsiniz. Meta açıklamaları, URL yapıları ve site hızı optimizasyonu kritik faktörler.
 
 ### Temel SEO Adımları:
+
 1. Anahtar kelime araştırması yapın
 2. Ürün açıklamalarını optimize edin
 3. Görsel alt metinlerini doldurun
@@ -77,6 +76,7 @@ AI araçlarını SEO'da nasıl kullanabilirsiniz:
 Sayfa deneyimi metrikleri sıralama faktörü olmaya devam ediyor. LCP, FID ve CLS değerlerinizi optimize edin.
 
 ### Hedef Değerler:
+
 - LCP: 2.5 saniyenin altında
 - FID: 100ms'nin altında
 - CLS: 0.1'in altında
@@ -115,6 +115,7 @@ SEO'da başarılı olmak için sürekli öğrenmek ve adapte olmak gerekiyor. 20
 Karmaşık ödeme süreçleri sepet terk oranını artırır. Checkout adımlarını minimumda tutun.
 
 ### İpuçları:
+
 - Misafir checkout seçeneği sunun
 - Form alanlarını minimize edin
 - İlerleme göstergesi kullanın
@@ -139,6 +140,7 @@ Her 1 saniyelik gecikme, dönüşüm oranını %7 düşürebilir. Site hızını
 Profesyonel ürün fotoğrafları ve farklı açılardan görüntüler satışları artırır.
 
 ### Görsel İpuçları:
+
 - Yüksek çözünürlüklü fotoğraflar
 - 360 derece görünüm
 - Zoom özelliği
@@ -157,6 +159,131 @@ Bu stratejileri uygulayarak dönüşüm oranınızı önemli ölçüde artırabi
     author: 'Corven Dijital',
     date: '10 Mart 2024',
     readTime: '6 dk',
+  },
+  {
+    id: '4',
+    title: 'Mobil E-Ticaret: Neden Önemli ve Nasıl Optimize Edilir?',
+    slug: 'mobil-eticaret-optimizasyonu',
+    excerpt: 'Mobil cihazlardan yapılan alışverişler artıyor. E-ticaret sitenizi mobil için optimize etmenin yollarını öğrenin.',
+    content: `Mobil cihazlardan yapılan alışverişler her geçen gün artıyor. E-ticaret sitenizi mobil için optimize etmek artık bir zorunluluk.
+
+## 1. Mobil Öncelikli Tasarım
+
+Tasarımınızı mobil cihazlar için optimize edin. Küçük ekranlarda da mükemmel çalışan bir deneyim sunun.
+
+### Dikkat Edilmesi Gerekenler:
+
+- Touch-friendly butonlar
+- Kolay okunabilir yazı tipi boyutları
+- Hızlı yüklenme süreleri
+- Basit navigasyon
+
+## 2. Performans Optimizasyonu
+
+Mobil kullanıcılar hız konusunda daha sabırsız. Sayfa yüklenme sürelerini minimize edin.
+
+## 3. Ödeme Süreçleri
+
+Mobilde checkout sürecini sadeleştirin:
+- Tek sayfa checkout
+- Dijital cüzdan entegrasyonları
+- Kayıtlı kart bilgileri
+- Biyometrik doğrulama
+
+## Sonuç
+
+Mobil optimizasyon, e-ticaret başarınız için kritik öneme sahip. Bu adımları uygulayarak mobil dönüşümlerinizi artırabilirsiniz.`,
+    category: 'E-Ticaret',
+    tags: ['Mobil', 'E-Ticaret', 'Optimizasyon'],
+    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800',
+    author: 'Corven Dijital',
+    date: '5 Nisan 2024',
+    readTime: '4 dk',
+  },
+  {
+    id: '5',
+    title: 'İKAS Tema Geliştirme: Başlangıç Rehberi',
+    slug: 'ikas-tema-gelistirme-rehberi',
+    excerpt: 'İKAS platformunda özel tema geliştirmeye başlamak için bilmeniz gereken temel bilgiler ve ipuçları.',
+    content: `İKAS platformunda özel tema geliştirmek, markanızı rakiplerinden farklılaştırmanın en etkili yollarından biri.
+
+## 1. Liquid Şablon Dili
+
+İKAS, Liquid şablon dilini kullanıyor. Bu dili öğrenmek tema geliştirmenin ilk adımı.
+
+### Temel Liquid Özellikleri:
+
+- Değişkenler ve filtreler
+- Koşullar ve döngüler
+- Şablon kalıtımı
+- Özel etiketler
+
+## 2. Tema Yapısı
+
+İKAS temalarının standart bir dosya yapısı vardır:
+- Templates klasörü
+- Sections klasörü
+- Assets klasörü
+- Config dosyaları
+
+## 3. En İyi Pratikler
+
+Tema geliştirirken dikkat edilmesi gerekenler:
+- SEO uyumlu markup
+- Performans odaklı kod
+- Responsive tasarım
+- Erişilebilirlik standartları
+
+## Sonuç
+
+İKAS tema geliştirme, güçlü ve esnek bir süreç. Doğru bilgi ve deneyimle muhteşem temalar oluşturabilirsiniz.`,
+    category: 'Tema Geliştirme',
+    tags: ['İKAS', 'Tema', 'Liquid', 'Geliştirme'],
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800',
+    author: 'Corven Dijital',
+    date: '20 Nisan 2024',
+    readTime: '8 dk',
+  },
+  {
+    id: '6',
+    title: 'E-Ticarette Müşteri Deneyimini İyileştirmenin Yolları',
+    slug: 'eticarette-musteri-deneyimi',
+    excerpt: 'Online mağazanızda müşteri deneyimini nasıl iyileştirebileceğinizi ve sadık müşteriler kazanabileceğinizi öğrenin.',
+    content: `Müşteri deneyimi, e-ticaret başarısının anahtarı. Müşterilerinize unutulmaz bir deneyim sunarak sadık müşteriler kazanın.
+
+## 1. Kişiselleştirme
+
+Her müşteriye özel deneyim sunun:
+- Kişiselleştirilmiş ürün önerileri
+- Özel kampanyalar
+- İsme göre karşılama
+- Satın alma geçmişine dayalı öneriler
+
+## 2. Hızlı Destek
+
+Müşteri sorularına hızlı yanıt verin:
+- Canlı sohbet desteği
+- Chatbot entegrasyonu
+- Detaylı SSS bölümü
+- Kolay iletişim kanalları
+
+## 3. Kolay İade Süreci
+
+İade sürecini basitleştirin:
+- Ücretsiz iade kargo
+- Kolay iade formu
+- Hızlı para iadesi
+- Şeffaf politikalar
+
+## Sonuç
+
+Müşteri deneyimine yatırım yapmak, uzun vadede işinizi büyütmenin en etkili yoludur.`,
+    category: 'E-Ticaret',
+    tags: ['Müşteri Deneyimi', 'E-Ticaret', 'CX'],
+    image: 'https://images.unsplash.com/photo-1556742111-a301076d9d18?w=800',
+    author: 'Corven Dijital',
+    date: '1 Mayıs 2024',
+    readTime: '5 dk',
   },
 ];
 
@@ -199,116 +326,10 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
     notFound();
   }
 
-  // Markdown'ı basit HTML'e çevir
-  const formatContent = (content: string) => {
-    return content
-      .split('\n')
-      .map((line, index) => {
-        if (line.startsWith('## ')) {
-          return `<h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">${line.replace('## ', '')}</h2>`;
-        }
-        if (line.startsWith('### ')) {
-          return `<h3 class="text-xl font-semibold text-gray-900 mt-6 mb-3">${line.replace('### ', '')}</h3>`;
-        }
-        if (line.startsWith('- ')) {
-          return `<li class="text-gray-600 ml-4">${line.replace('- ', '')}</li>`;
-        }
-        if (line.match(/^\d+\. /)) {
-          return `<li class="text-gray-600 ml-4">${line.replace(/^\d+\. /, '')}</li>`;
-        }
-        if (line.trim() === '') {
-          return '<br />';
-        }
-        return `<p class="text-gray-600 mb-4">${line}</p>`;
-      })
-      .join('');
-  };
+  // İlgili yazıları bul (aynı kategoriden veya benzer etiketlerden)
+  const relatedPosts = blogPosts
+    .filter((p) => p.id !== post.id && (p.category === post.category || p.tags.some((tag) => post.tags.includes(tag))))
+    .slice(0, 3);
 
-  return (
-    <>
-      {/* Hero */}
-      <section className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link
-            href="/blog"
-            className="inline-flex items-center text-gray-300 hover:text-white mb-6 transition-colors"
-          >
-            <ArrowLeft size={18} className="mr-2" />
-            Tüm Yazılar
-          </Link>
-          <span className="inline-block bg-primary-600 text-white text-sm px-3 py-1 rounded-full mb-4">
-            {post.category}
-          </span>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">{post.title}</h1>
-          <div className="flex flex-wrap items-center gap-4 text-gray-300">
-            <span className="flex items-center">
-              <User size={16} className="mr-2" />
-              {post.author}
-            </span>
-            <span className="flex items-center">
-              <Calendar size={16} className="mr-2" />
-              {post.date}
-            </span>
-            <span className="flex items-center">
-              <Clock size={16} className="mr-2" />
-              {post.readTime} okuma
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Image */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8">
-        <div className="relative h-64 md:h-96 rounded-xl overflow-hidden shadow-xl">
-          <Image
-            src={post.image}
-            alt={post.title}
-            fill
-            className="object-cover"
-          />
-        </div>
-      </div>
-
-      {/* Content */}
-      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div
-          className="prose prose-lg max-w-none"
-          dangerouslySetInnerHTML={{ __html: formatContent(post.content) }}
-        />
-
-        {/* Tags */}
-        <div className="mt-12 pt-8 border-t">
-          <div className="flex items-center flex-wrap gap-2">
-            <Tag size={18} className="text-gray-400" />
-            {post.tags.map((tag) => (
-              <span
-                key={tag}
-                className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-sm"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-      </article>
-
-      {/* CTA */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Projeniz İçin Destek mi Arıyorsunuz?
-          </h2>
-          <p className="text-gray-600 mb-6">
-            E-ticaret ve dijital pazarlama konusunda uzman ekibimizle tanışın.
-          </p>
-          <Link
-            href="/teklif"
-            className="inline-flex items-center bg-primary-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors"
-          >
-            Ücretsiz Teklif Alın
-          </Link>
-        </div>
-      </section>
-    </>
-  );
+  return <BlogDetailClient post={post} relatedPosts={relatedPosts} />;
 }
